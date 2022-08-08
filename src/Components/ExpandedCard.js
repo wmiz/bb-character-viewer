@@ -12,7 +12,6 @@ const ExpandedCard = ({ charData }) => {
     appearance,
     portrayed,
   } = charData;
-  console.log(charData);
   return (
     <div className="ExpandedCard tc br3 ma4 dib bw2 shadow-5">
       <div className="grid">
@@ -26,16 +25,25 @@ const ExpandedCard = ({ charData }) => {
           </div>
         </div>
         <div>
-          <p>Occupation {occupation}</p>
+          <p>
+            Occupation{occupation.length > 1 ? "s" : ""}: {occupation}
+          </p>
           <p>Status: {status}</p>
           <p>Nickname: {nickname}</p>
-          <p>Season Appearances: {appearance}</p>
-          <a
-            href={`https://www.imdb.com/find?q=${portrayed.replace(" ", "+")}`}
-            target="_blank"
-          >
-            <p>Portrayed by: {portrayed}</p>
-          </a>
+          <p>Appearances: {appearance}</p>
+          <p>
+            Portrayed by:{" "}
+            <a
+              href={`https://www.imdb.com/find?q=${portrayed.replace(
+                " ",
+                "+"
+              )}`}
+              target="_blank"
+              rel="norefferer"
+            >
+              {portrayed}
+            </a>
+          </p>
         </div>
       </div>
     </div>

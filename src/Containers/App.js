@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   onSearchChange = (event) => {
-    console.log("Searching for: " + event.target.value);
     this.setState({ searchfield: event.target.value });
   };
 
@@ -51,7 +50,8 @@ class App extends Component {
     if (!dataIsLoaded) {
       return (
         <div>
-          <h1 className="tc">Breaking Bad Character Viewer</h1>
+          <img src="../Assets/logo.png" alt="Breaking Bad logo" />
+          <h1 className="tc">Breaking Bad Character Explorer</h1>
           <SearchBox searchChange={this.onSearchChange} />
           <h1 className="tc"> Loading.... </h1>
         </div>
@@ -59,7 +59,8 @@ class App extends Component {
     } else {
       return (
         <>
-          <h1 className="tc">Breaking Bad Character Viewer</h1>
+          <img src="../Assets/logo.png" alt="Breaking Bad logo" />
+          <h1 className="tc">Breaking Bad Character Explorer</h1>
           <SearchBox onSearchChange={this.onSearchChange} />
           <Scroll>
             <ErrorBoundary>
