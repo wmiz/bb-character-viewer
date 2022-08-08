@@ -1,5 +1,7 @@
 import React from "react";
 import "./ExpandedCard.css";
+import Bubbles from "../Components/Bubbles";
+import { FaImdb } from "react-icons/fa";
 
 const ExpandedCard = ({ charData }) => {
   const {
@@ -26,13 +28,23 @@ const ExpandedCard = ({ charData }) => {
         </div>
         <div>
           <p>
-            Occupation{occupation.length > 1 ? "s" : ""}: {occupation}
+            <b>
+              Occupation
+              {occupation.length > 1 ? "s" : ""}:
+            </b>
+            {occupation}
           </p>
-          <p>Status: {status}</p>
-          <p>Nickname: {nickname}</p>
-          <p>Appearances: {appearance}</p>
           <p>
-            Portrayed by:{" "}
+            <b>Status:</b> {status}
+          </p>
+          <p>
+            <b>Nickname:</b> {nickname}
+          </p>
+          <p>
+            <b>Appearances:</b> <Bubbles values={appearance}></Bubbles>
+          </p>
+          <p>
+            <b>Portrayed by:</b>{" "}
             <a
               href={`https://www.imdb.com/find?q=${portrayed.replace(
                 " ",
@@ -42,6 +54,7 @@ const ExpandedCard = ({ charData }) => {
               rel="norefferer"
             >
               {portrayed}
+              <FaImdb className="v-mid pa1 imdb"></FaImdb>
             </a>
           </p>
         </div>

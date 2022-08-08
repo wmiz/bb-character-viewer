@@ -1,0 +1,18 @@
+.bubble-list {
+    display: inline-block;
+    padding: 0;
+}
+
+.bubble-list .bubble {
+    list-style: none;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .2);
+    margin: 5px;
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bubble-list .bubble {
+    cursor: pointer;
+}

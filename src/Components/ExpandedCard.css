@@ -15,6 +15,10 @@
     grid-gap: 10px;
 }
 
+.ExpandedCard .grid div:first-child {
+    background-color: rgba(255, 255, 255, .25);
+}
+
 .ExpandedCard .grid div {
     text-align: left;
 }
@@ -30,4 +34,22 @@
 
 .ExpandedCard.open {
     display: block;
+}
+
+.ExpandedCard a {
+    color: white;
+}
+
+.ExpandedCard a:hover {
+    color: #DDD
+}
+
+.ExpandedCard .imdb {
+    font-size: 1.7em;
+    color: rgba(245,197,24,1)
+}
+
+
+.ExpandedCard a:hover .imdb {
+    color: rgba(245, 197, 24, .8)
 }
