@@ -10,13 +10,7 @@ const CardList = ({ charData }) => {
       {charData.map((char, i) => {
         return (
           <>
-            <Card
-              className="Card w-25 pa3 mr2"
-              imgURL={char.img}
-              name={char.name}
-              key={i}
-            ></Card>
-            <ExpandedCard charData={char} />
+            <ExpandedCard charData={char} key={i} />
           </>
         );
       })}

@@ -53,7 +53,6 @@ class App extends Component {
     if (!dataIsLoaded) {
       return (
         <div>
-          <img src="../Assets/logo.png" alt="Breaking Bad logo" />
           <h1 className="tc">Breaking Bad Character Explorer</h1>
           <SearchBox searchChange={this.onSearchChange} />
           <h1 className="tc"> Loading.... </h1>
@@ -62,9 +61,10 @@ class App extends Component {
     } else {
       return (
         <>
-          <img src="../Assets/logo.png" alt="Breaking Bad logo" />
-          <h1 className="tc">Breaking Bad Character Explorer</h1>
-          <SearchBox onSearchChange={this.onSearchChange} />
+          <div style={{ height: "20vh" }}>
+            <h1 className="tc">Breaking Bad Character Explorer</h1>
+            <SearchBox onSearchChange={this.onSearchChange} />
+          </div>
           <Scroll>
             <ErrorBoundary>
               <CardList charData={filteredCharData} />

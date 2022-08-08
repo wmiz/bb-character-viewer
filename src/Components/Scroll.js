@@ -6,8 +6,8 @@ const Scroll = (props) => {
       className="custom-scroll"
       style={{
         overflow: "scroll",
-        borderTop: "5px solid black",
-        height: "800px",
+        border: "1px solid black",
+        height: "80vh",
       }}
     >
       {props.children}
