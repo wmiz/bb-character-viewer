@@ -3,7 +3,11 @@ import "./ExpandedCard.css";
 import Bubbles from "../Components/Bubbles";
 import { FaImdb } from "react-icons/fa";
 
-const ExpandedCard = ({ charData }) => {
+const ExpandedCard = ({ charData, deathData }) => {
+  const getDeath = (name, deathData) => {
+    const death = deathData.filter((death) => death.death === name);
+    return death[0];
+  };
   const {
     img,
     name,
@@ -14,6 +18,8 @@ const ExpandedCard = ({ charData }) => {
     appearance,
     portrayed,
   } = charData;
+
+  const death = getDeath(name, deathData);
   return (
     <div className="ExpandedCard tc br3 ma4 dib bw2 shadow-5">
       <div className="grid">
@@ -33,17 +39,24 @@ const ExpandedCard = ({ charData }) => {
               {occupation.length > 1 ? "s" : ""}:
             </b>
             {occupation.map((occ, i) => (
-              <p style={{ display: "inline-block", padding: "2px" }}>
+              <p
+                key={`occ-${i}`}
+                style={{ display: "inline-block", padding: "2px" }}
+              >
                 {occ}
                 {i < occupation.length - 1 ? "," : ""}
               </p>
             ))}
           </p>
           <p>
-            <b>Status:</b> {status}
+            <b>Status:</b> {status} {}
           </p>
+          <details>
+            <summary>Details</summary>
+            {death ? "Cause: " + death.cause : ""}
+          </details>
           <p>
-            <b>Nickname:</b> {nickname}
+            <b>Nickname:</b> "{nickname}"
           </p>
           <p>
             <b>Appearances:</b> <Bubbles values={appearance}></Bubbles>

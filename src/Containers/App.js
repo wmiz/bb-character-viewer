@@ -11,20 +11,28 @@ class App extends Component {
 
     this.state = {
       dataIsLoaded: false,
+      deathData: [],
       charData: [],
       searchfield: "",
     };
   }
 
   fetchData() {
-    const { searchfield } = this.state;
     fetch(`https://breakingbadapi.com/api/characters`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           charData: data,
+        });
+      })
+      .catch((error) => console.log(error));
+
+    fetch(`https://breakingbadapi.com/api/deaths`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          deathData: data,
           dataIsLoaded: true,
-          searchfield: searchfield,
         });
       })
       .catch((error) => console.log(error));
@@ -43,7 +51,7 @@ class App extends Component {
   }
 
   render() {
-    const { charData, dataIsLoaded, searchfield } = this.state;
+    const { charData, dataIsLoaded, searchfield, deathData } = this.state;
     const filteredCharData = charData.filter((char) => {
       return (
         char.name.toLowerCase().includes(searchfield.toLowerCase()) ||
@@ -67,7 +75,7 @@ class App extends Component {
           </div>
           <Scroll>
             <ErrorBoundary>
-              <CardList charData={filteredCharData} />
+              <CardList charData={filteredCharData} deathData={deathData} />
             </ErrorBoundary>
           </Scroll>
         </>
