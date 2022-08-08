@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "../Components/Card";
 import "tachyons";
+import "./CardList.css";
 
 const CardList = ({ charData }) => {
   return (
-    <section className="tc flex flex-wrap justify-center">
+    <section className="tc cust-scroll flex flex-wrap justify-center">
       {charData.map((char, i) => {
         return (
           <Card
