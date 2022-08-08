@@ -1,0 +1,33 @@
+.ExpandedCard img {
+    width: auto;
+    object-fit: cover;
+    width: 280px;
+}
+
+.ExpandedCard {
+    width: 100%;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.ExpandedCard .grid {
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-gap: 10px;
+}
+
+.ExpandedCard .grid div {
+    text-align: left;
+}
+
+.ExpandedCard .grid .title-card {
+    text-align: center;
+}
+
+.ExpandedCard .grid .title-card .birthday {
+    font-style: italic;
+    font-size: .8em;
+}
+
+.ExpandedCard.open {
+    display: block;
+}

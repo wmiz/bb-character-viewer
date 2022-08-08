@@ -18,14 +18,13 @@ class App extends Component {
 
   fetchData() {
     const { searchfield } = this.state;
-    console.log("Fetching: " + `https://breakingbadapi.com/api/characters`);
     fetch(`https://breakingbadapi.com/api/characters`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           charData: data,
           dataIsLoaded: true,
-          searchfield: this.state.searchfield,
+          searchfield: searchfield,
         });
       })
       .catch((error) => console.log(error));
