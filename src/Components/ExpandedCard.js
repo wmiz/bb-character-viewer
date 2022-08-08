@@ -32,7 +32,12 @@ const ExpandedCard = ({ charData }) => {
               Occupation
               {occupation.length > 1 ? "s" : ""}:
             </b>
-            {occupation}
+            {occupation.map((occ, i) => (
+              <p style={{ display: "inline-block", padding: "2px" }}>
+                {occ}
+                {i < occupation.length - 1 ? "," : ""}
+              </p>
+            ))}
           </p>
           <p>
             <b>Status:</b> {status}

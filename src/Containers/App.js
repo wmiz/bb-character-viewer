@@ -45,7 +45,10 @@ class App extends Component {
   render() {
     const { charData, dataIsLoaded, searchfield } = this.state;
     const filteredCharData = charData.filter((char) => {
-      return char.name.toLowerCase().includes(searchfield.toLowerCase());
+      return (
+        char.name.toLowerCase().includes(searchfield.toLowerCase()) ||
+        char.nickname.toLowerCase().includes(searchfield.toLowerCase())
+      );
     });
     if (!dataIsLoaded) {
       return (
